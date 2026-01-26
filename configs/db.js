@@ -2,12 +2,11 @@ import mongoose from 'mongoose';
 
 const connectDB = async () => {
     try {
-        mongoose.connection.on('connectec', ()=> console.log('Database connected'))
+        mongoose.connection.on('connected', ()=> console.log('Database connected'))
         await mongoose.connect (`${process.env.MONGODB_URL}/pingup`)
-    }catch (error) {
+    } catch (error) {
         console.log(error.message)
-
-
+        throw error
     }
-    }
-    export default connectDB
+}
+export default connectDB
