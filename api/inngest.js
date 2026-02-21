@@ -1,5 +1,6 @@
 import { serve } from "inngest/express";
-import { inngest, functions } from "../inngest/index.js";
+import { inngest } from "../server/inngest/index.js";
+import { functions } from "../server/inngest/functions.js";
 
 export default serve({
   client: inngest,
