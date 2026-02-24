@@ -1,8 +1,9 @@
 {
     "version": 2,
+    "buildCommand": "echo 'Build complete'",
     "builds": [
         {
-            "src": "package.json",
+            "src": "api/index.js",
             "use": "@vercel/node"
         }
     ],
@@ -11,5 +12,8 @@
             "src": "/(.*)",
             "dest": "api/index.js"
         }
-    ]
+    ],
+    "env": {
+        "NODE_ENV": "production"
+    }
 }
