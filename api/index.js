@@ -1,15 +1,22 @@
 import express from 'express';
 import cors from 'cors';
-import 'dotenv/config';
-import testInngest from './test-inngest.js';
 
 const app = express();
 
 app.use(express.json());
 app.use(cors());
 
-app.get('/', (req, res) => res.send('Server is running'));
-app.use('/api/inngest', testInngest);
+app.get('/', (req, res) => {
+  res.send('Server is running');
+});
+
+app.get('/api/inngest', (req, res) => {
+  res.json({ 
+    message: 'Inngest route working',
+    method: req.method,
+    timestamp: new Date().toISOString()
+  });
+});
 
 // Error handling middleware
 app.use((error, req, res, next) => {
